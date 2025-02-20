@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Petrik Tree Service - Professional Tree Care</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">Petrik Tree Service</div>
+        <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="gallery.html">Our Work</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Professional Tree Care Services</h1>
+        <p>
+          Expert tree removal, trimming, and maintenance services for your peace
+          of mind
+        </p>
+        <a href="#contact" class="cta-button">Get Free Quote</a>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="services-container">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <i class="fas fa-tree"></i>
+            <h3>Tree Removal</h3>
+            <p>Safe and efficient removal of trees of any size</p>
+            <button class="learn-more-btn" onclick="openModal('removal')">
+              Learn More
+            </button>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-cut"></i>
+            <h3>Tree Trimming</h3>
+            <p>Expert pruning and maintenance for healthy trees</p>
+            <button class="learn-more-btn" onclick="openModal('trimming')">
+              Learn More
+            </button>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-seedling"></i>
+            <h3>Stump Removal</h3>
+            <p>Complete stump grinding and removal services</p>
+            <button class="learn-more-btn" onclick="openModal('stump')">
+              Learn More
+            </button>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-bolt"></i>
+            <h3>Emergency Services</h3>
+            <p>24/7 emergency tree removal and storm damage cleanup</p>
+            <button class="learn-more-btn" onclick="openModal('emergency')">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-wrapper">
+          <!-- Contact Information -->
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h3>Phone</h3>
+                <p>Mobile: 1 (605) 481-2767</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h3>Email</h3>
+                <p>petriktreeservice@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-location-dot"></i>
+              <div>
+                <h3>Address</h3>
+                <p>Petrik Tree Service LLC</p>
+                <p>406 N Elm StAvon, SD 57315, USA
+                </p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h3>Hours</h3>
+                <p>Monday - Friday: 7am - 6pm</p>
+                <p><strong>24/7 Emergency Service Available</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+<div class="contact-form">
+  <h3>Request a Free Quote</h3>
+  <form id="contactForm" onsubmit="return handleSubmit(event)" enctype="multipart/form-data">
+    <div class="form-group">
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        placeholder="Your Name"
+      />
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="Your Email"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          required
+          placeholder="Your Phone"
+        />
+      </div>
+    </div>
+    <div class="form-group">
+      <select id="service" name="service" required>
+        <option value="">Select Service Needed</option>
+        <option value="removal">Tree Removal</option>
+        <option value="trimming">Tree Trimming</option>
+        <option value="stump">Stump Removal</option>
+        <option value="emergency">Emergency Service</option>
+      </select>
+    </div>
+
+    <!-- New Image Upload Section -->
+    <div class="form-group">
+      <div class="upload-box">
+        <input
+          type="file"
+          id="jobPhotos"
+          name="jobPhotos"
+          accept="image/*"
+          multiple
+          class="file-input"
+          onchange="handleFileSelect(event)"
+        />
+        <div class="upload-content">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p>Upload photos of the job (optional)</p>
+          <span class="file-info">Drop images here or click to browse</span>
+        </div>
+      </div>
+      <div id="imagePreviewContainer" class="image-preview-container"></div>
+    </div>
+
+    <div class="form-group">
+      <textarea
+        id="message"
+        name="message"
+        required
+        placeholder="Please describe your tree service needs..."
+      ></textarea>
+    </div>
+    <button type="submit" class="cta-button">Get Free Quote</button>
+  </form>
+</div>
+
+    </section>
+
+        <!-- Footer (Kept exactly the same as your original) -->
+    <footer class="footer">
+      <!-- Your existing footer content remains unchanged -->
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>About Us</h3>
+            <p>
+              Petrik Tree Service is your trusted partner for professional tree
+              care services. Family-owned and operated, serving South Dakota and
+              Nebraska with over 5 years of experience.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3>Service Area</h3>
+            <div class="service-areas">
+              <div class="area-column">
+                <h4>South Dakota</h4>
+                <ul>
+                  <li><i class="fas fa-map-marker-alt"></i> Avon</li>
+                  <li><i class="fas fa-map-marker-alt"></i> Springfield</li>
+                  <li><i class="fas fa-map-marker-alt"></i> Wagner</li>
+                  <li><i class="fas fa-map-marker-alt"></i> Tyndall</li>
+                  <li><i class="fas fa-map-marker-alt"></i> Scotland</li>
+                  <li><i class="fas fa-map-marker-alt"></i> Lake Andes</li>
+                  <li><i class="fas fa-map-marker-alt"></i> Armour</li>
+                  <li><i class="fas fa-map-marker-alt"></i> Parkston</li>
+                  <li><i class="fas fa-map-marker-alt"></i> Yankton</li>
+                </ul>
+              </div>
+              <div class="area-column">
+                <h4>Nebraska</h4>
+                <ul>
+                  <li><i class="fas fa-map-marker-alt"></i> O'Neill</li>
+                  <li><i class="fas fa-map-marker-alt"></i> Spencer</li>
+                  <li><i class="fas fa-map-marker-alt"></i> Lynch</li>
+                  <li><i class="fas fa-map-marker-alt"></i> Butte</li>
+                  <li><i class="fas fa-map-marker-alt"></i> Atkinson</li>
+                  <li><i class="fas fa-map-marker-alt"></i> Bristow</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/search/top?q=petrik%20tree%20service%20llc" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/petriktree/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <div class="certifications">
+              <p>Licensed & Insured</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Petrik Tree Service LLC. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+  <!-- Tree Removal Modal -->
+  <div id="modal-removal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('removal')">&times;</span>
+      <div class="modal-body">
+        <h2>Tree Trimming Services</h2>
+        <p>
+          Our expert tree trimming services enhance the health, safety, and appearance
+          of your trees. We utilize precise techniques and professional equipment to
+          ensure optimal results for your landscape.
+        </p>
+        <h3>Our Process:</h3>
+        <ul>
+          <li>Detailed tree health assessment</li>
+          <li>Strategic pruning and crown maintenance</li>
+          <li>Dead wood and hazard removal</li>
+          <li>Shape restoration and aesthetic enhancement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+    <!-- Tree Trimming Modal -->
+<div id="modal-trimming" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('trimming')">&times;</span>
+    <div class="modal-body">
+      <h2>Tree Trimming Services</h2>
+      <p>
+        Our expert tree trimming services enhance the health, safety, and appearance
+        of your trees. We utilize precise techniques and professional equipment to
+        ensure optimal results for your landscape.
+      </p>
+      <h3>Our Process:</h3>
+      <ul>
+        <li>Detailed tree health assessment</li>
+        <li>Strategic pruning and crown maintenance</li>
+        <li>Dead wood and hazard removal</li>
+        <li>Shape restoration and aesthetic enhancement</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Stump Removal Modal -->
+<div id="modal-stump" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('stump')">&times;</span>
+    <div class="modal-body">
+      <h2>Stump Removal Services</h2>
+      <p>
+        Complete your landscape transformation with our thorough stump removal
+        service. We use advanced grinding equipment to efficiently remove unsightly
+        stumps and restore your property's appearance.
+      </p>
+      <h3>Our Process:</h3>
+      <ul>
+        <li>Site evaluation and underground utility check</li>
+        <li>Professional stump grinding equipment</li>
+        <li>Complete root system removal</li>
+        <li>Site restoration and cleanup</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Emergency Services Modal -->
+<div id="modal-emergency" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal('emergency')">&times;</span>
+    <div class="modal-body">
+      <h2>Emergency Tree Services</h2>
+      <p>
+        Available 24/7 for urgent tree-related emergencies. Our rapid response team
+        is equipped to handle storm damage, fallen trees, and hazardous situations
+        safely and efficiently.
+      </p>
+      <h3>Our Process:</h3>
+      <ul>
+        <li>Immediate response and situation assessment</li>
+        <li>Priority handling of hazardous conditions</li>
+        <li>Emergency equipment deployment</li>
+        <li>Quick debris clearance and property protection</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
